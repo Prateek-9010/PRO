@@ -1,14 +1,11 @@
-import React from 'react';
-import Protected from './components/Protected';
-import Public from './components/Public';
-import UseAuth from './hooks/UseAuth';
-
+import React from "react";
+import Routes from "./Routes.jsx";
+import UserContextProvider from "./context/UserContextProvider.jsx";
 
 function App() {
-  const [isLogin, token] = UseAuth();
-  
-  return ( isLogin ? <Protected token={token}/> : <Public/>
-  )
+  return <UserContextProvider>
+         <Routes />
+         </UserContextProvider>;
 }
 
-export default App
+export default App;
