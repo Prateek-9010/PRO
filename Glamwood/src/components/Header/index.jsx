@@ -4,9 +4,9 @@ import { MdAccountCircle } from 'react-icons/md';
 
 const Header = () => {
   return (
-    <header className="bg-white shadow-md p-4">
+    <header className="bg-white p-3">
       <div className="container mx-auto flex justify-between items-center">
-        {/* Logo */}
+        {/* Logo shadow md */}
         <div className="text-2xl font-bold text-gray-800">
           <a href="/">MyLogo</a>
         </div>

@@ -1,23 +1,10 @@
-
-import React, { useEffect, useState , useContext} from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import Header from '../../components/Header';
-import { FaPlus } from 'react-icons/fa';
-import Modal from '../../components/Modal';
+import Sidebar from '../../components/Sidebar';
 import UserContext from '../../context/UserContext';
 
 const HomepagePage = ({ token }) => {
-  const [items, setItems] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
+ 
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
@@ -32,29 +19,16 @@ const HomepagePage = ({ token }) => {
   //     }
   //   };
 
-  //   fetchData();
-  // }, []);//token
 
   return (
-    <div>
-      <Header/>
-      <button
-        className="ml-8 mt-6 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded inline-flex items-center"
-        onClick={openModal}
-      >
-        <FaPlus className="mr-2" />
-        Create
-      </button>
-      <Modal isOpen={isModalOpen} onClose={closeModal} />
-      {/* {items ? (
-        items.map((item) => <h3 key={item}>{item}</h3>)
-      ) : (
-        <div>Protected</div>
-      )} */}
-
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1 ml-64 p-4">
+        <Header />
+      </div>
     </div>
   );
 };
 
-
 export default HomepagePage;
+
