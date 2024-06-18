@@ -1,24 +1,30 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Header from '../../components/Header';
 import Sidebar from '../../components/Sidebar';
+import axios from 'axios';
 import UserContext from '../../context/UserContext';
 
-const HomepagePage = ({ token }) => {
- 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('/list', {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       });
-  //       setItems(response.data.items);
-  //     } catch (error) {
-  //       console.error('Error fetching data:', error);
-  //     }
-  //   };
+const HomepagePage = () => {
+  const [Items, setItems] = useState(null)
+  const {token}=useContext(UserContext);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+      const response = await axios.get('/list', 
+          {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            },
+        });
+        setItems(response.data.items);
+          } catch (error) {
+        console.error('Error fetching data:', error);
+           }
+         }
+        //  console.log(Items)
+     });
+    //  console.log(Items)
 
   return (
     <div className="flex">

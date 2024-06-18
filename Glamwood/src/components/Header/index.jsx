@@ -1,10 +1,9 @@
-// src/components/Header.jsx
 import React from 'react';
 import { MdAccountCircle } from 'react-icons/md';
 
 const Header = () => {
   return (
-    <header className="bg-white p-3">
+    <header className="bg-white p-3 sticky top-0 z-50">
       <div className="container mx-auto flex justify-between items-center">
         {/* Logo shadow md */}
         <div className="text-2xl font-bold text-gray-800">

@@ -1,10 +1,15 @@
-import React, { useEffect, useState, useRef} from 'react';
+import React, { useEffect, useState, useRef, useContext} from 'react';
 import Keycloak from 'keycloak-js';
+import UserContext from '../../context/UserContext';
 
 const UseAuth = () => {
     const [isLogin, setLogin] = useState(false);
-    const [token,settoken] = useState(null);
     const isRun = useRef(false);
+    // const {setToken} = useContext(UserContext);
+    const [token,setToken] = useState(null);
+
+    
+
 
     useEffect(() => {
 
@@ -24,13 +29,13 @@ const UseAuth = () => {
          })
             .then((res) => {
                 setLogin(res);
-                settoken(client.token);
+                setToken(client.token);
             });
 
     }, []);
-    // console.log(token)
+     console.log(token)
 
-    return [isLogin, token];
+    return isLogin
 }
 
 export default UseAuth;
