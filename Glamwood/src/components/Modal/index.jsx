@@ -60,8 +60,8 @@ const Modal = ({ isOpen, onClose }) => {
   return (
     <>
       {isOpen && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center">
-          <div className="bg-white p-8 rounded shadow-lg">
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded shadow-lg z-60">
             <h2 className="text-3xl font-bold text-black mb-4">New Expense</h2>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
