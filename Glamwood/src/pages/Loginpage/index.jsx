@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+import React, {useState , useContext} from "react";
+import { Navigate, useNavigate  } from "react-router-dom";
+// import UserContext from "context/UserContext";
 
 function LoginForm() {
+
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,10 +15,21 @@ function LoginForm() {
       alert('Please fill out all fields.');
       return;
     }
-
     console.log(`Submitting email: ${email}, password: ${password}`);
     // Here you would typically send the data to your backend or perform other actions
   };
+
+  const handleClick = (email) => {
+    // Logic will go here
+
+    if (email === "admin@gmail.com") {
+      navigate("/Homepage");
+    } else if (email === "user@gmail.com") {
+      navigate("/user");
+    } else {
+      navigate("/Notfound");
+    }
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -44,7 +59,7 @@ function LoginForm() {
             />
           </div>
           <button
-        //   onSubmit={/}
+           onClick={() => handleClick(email)}
             type="submit"
             className="w-full bg-blue-500 text-white p-4 rounded hover:bg-blue-600 transition duration-200"
           >

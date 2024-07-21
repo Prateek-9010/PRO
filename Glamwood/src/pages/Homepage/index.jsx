@@ -8,28 +8,28 @@ const HomepagePage = () => {
   const [Items, setItems] = useState(null)
   const {token}=useContext(UserContext);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-      const response = await axios.get('/list', 
-          {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            },
-        });
-        setItems(response.data.items);
-          } catch (error) {
-        console.error('Error fetching data:', error);
-           }
-         }
-        //  console.log(Items)
-     });
-    //  console.log(Items)
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //     const response = await axios.get('/list', 
+  //         {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //           },
+  //       });
+  //       setItems(response.data.items);
+  //         } catch (error) {
+  //       console.error('Error fetching data:', error);
+  //          }
+  //        }
+  //       //  console.log(Items)
+  //    });
+  //   //  console.log(Items)
 
   return (
-    <div className="flex">
+     <div className="flex">
       <Sidebar />
-      <div className="flex-1 ml-64 p-4">
+      <div className="flex-1 ml-64">
         <Header />
       </div>
     </div>
