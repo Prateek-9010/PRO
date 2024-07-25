@@ -3,7 +3,8 @@ import { MdAccountCircle } from 'react-icons/md';
 
 const Header = () => {
   return (
-    <header className="bg-white p-2 fixed top-0 left-0 right-0 z-10 shadow-md">
+    <>
+    <header className="bg-white p-2 fixed top-0 left-0 right-0 z-10 ">
       <div className="flex justify-between items-center mx-4">
         <div className="text-xl font-bold text-gray-800">
           <a href="/">Glamwood</a>
@@ -13,7 +14,10 @@ const Header = () => {
           <span className="hidden md:inline text-gray-800">Username</span>
         </div>
       </div>
+      <hr className="mt-2"/>
     </header>
+    <hr className="border-gray-200"/> 
+    </>
   );
 };
 
