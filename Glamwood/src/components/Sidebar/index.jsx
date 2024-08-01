@@ -17,7 +17,7 @@ const Sidebar = () => {
               }}
             >
               <FaPlus className="mr-4 ml-5" />
-              Create
+              Add User
             </button>
           </li>
           <li className="mt-2 hover:bg-gray-100 rounded">

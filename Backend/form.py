@@ -18,12 +18,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-minio_client = Minio(
-    "localhost:9000",
-    access_key="minioadmin",
-    secret_key="minioadmin",
-    secure=False
-)
+# minio_client = Minio(
+#     "localhost:9000",
+#     access_key="minioadmin",
+#     secret_key="minioadmin",
+#     secure=False
+# )
 
 bucket_name = "glamwood"
 
@@ -42,13 +42,13 @@ async def upload_file(name: str = Form(...), file: UploadFile = File(...)):
         file_content = await file.read()
         file_size = len(file_content)
 
-        minio_client.put_object(
-            bucket_name,
-            file_name,
-            data=io.BytesIO(file_content),
-            length=file_size,
-            content_type=file.content_type
-        )
+        # minio_client.put_object(
+        #     bucket_name,
+        #     file_name,
+        #     data=io.BytesIO(file_content),
+        #     length=file_size,
+        #     content_type=file.content_type
+        # )
 
         # Save file details to MongoDB
         file_doc = {
@@ -69,13 +69,13 @@ async def get_files():
         files.append(FileItem(**document))
     return files
 
-@app.get("/files/{image_name}")
-async def get_image(image_name: str):
-    try:
-        response = minio_client.get_object(bucket_name, image_name)
-        return StreamingResponse(response, media_type="image/jpeg")
-    except S3Error as e:
-        raise HTTPException(status_code=404, detail=f"Image '{image_name}' not found.")
+# @app.get("/files/{image_name}")
+# async def get_image(image_name: str):
+#     try:
+#         response = minio_client.get_object(bucket_name, image_name)
+#         return StreamingResponse(response, media_type="image/jpeg")
+#     except S3Error as e:
+#         raise HTTPException(status_code=404, detail=f"Image '{image_name}' not found.")
 
 
 # @app.get("/download/{filename}")
